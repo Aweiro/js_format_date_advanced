@@ -27,16 +27,18 @@ function formatDate(date, fromFormat, toFormat) {
 
   if (toYear.length === 4 && year.length === 2) {
     if (splitDate[indexYear] < 21) {
-      newDate[toIndexYear] = 20 + splitDate[indexYear];
+      newDate[toIndexYear] = 2000 + +splitDate[indexYear];
     } else {
-      newDate[toIndexYear] = 19 + splitDate[indexYear];
+      newDate[toIndexYear] = 1900 + +splitDate[indexYear];
     }
   }
 
   function formatYear(checkFormat) {
     if (checkFormat.includes('YYYY')) {
       return checkFormat.indexOf('YYYY');
-    } else {
+    }
+
+    if (checkFormat.includes('YY')) {
       return checkFormat.indexOf('YY');
     }
   }
